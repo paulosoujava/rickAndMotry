@@ -27,14 +27,15 @@ O app só faz a busca se a aplicação estiver on line, caso não esteja é exib
 #Telas:
 
 <p float="left">
-
+ <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/0.png" width="200" />
+  <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/7.jpg" width="200" />
  <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/1.jpg" width="200" />
  <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/2.jpg" width="200" />
  <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/3.jpg" width="200" />
  <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/4.jpg" width="200" />
  <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/5.jpg" width="200" />
  <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/6.jpg" width="200" />
- <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/7.jpg" width="200" />
+
 
 
 </p>
