@@ -4,15 +4,15 @@
 
 Sistemas de pastas do aplicativo:
 - Presenter
---Responsavel pelas uis, foi usado o MVI, model view intent, para gerenciar as ações a atualizações de views
+- - Responsavel pelas uis, foi usado o MVI, model view intent, para gerenciar as ações a atualizações de views
 - Data
---Responsável por frameworks externos, implementações de classes concretas
+- - Responsável por frameworks externos, implementações de classes concretas
 - Domain
---Responsavel pela lógica do negocio, foi usado os use cases, para não ter que passar as interfaces de repositórioas direto ao view model
+- - Responsavel pela lógica do negocio, foi usado os use cases, para não ter que passar as interfaces de repositórioas direto ao view model
 - ✨ Core ✨  
--- Base da aplicação, contendo classes seladas para o uso do MVI
+- - Base da aplicação, contendo classes seladas para o uso do MVI
 
-- - ## Features
+ ## Features
 
 - Cache com Retrofit, usando o interceptor
 - Fetch em Characteres
@@ -24,7 +24,19 @@ Sistemas de pastas do aplicativo:
 
 O app só faz a busca se a aplicação estiver on line, caso não esteja é exibido um toast
 
-#Telas:
+## O que foi utilizado:
+```sh
+JETPACK COMPOSE
+HILT
+RETROFIT
+VIEW MODEL
+SINGLE OF RESPOSABILITY
+DEPENDECY INJECTION
+DESIGN PATTERNS: SINGLETON, ABSTRACT FACTORY
+REPOSITORY PATTERN
+```
+
+## Telas:
 
 <p float="left">
  <img src="https://github.com/paulosoujava/rickAndMotry/blob/main/app/sampledata/0.png" width="200" />
