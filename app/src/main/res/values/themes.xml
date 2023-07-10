@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme" parent="android:Theme.Material.Light.NoActionBar"/>
+    <style name="Theme.CustomSplashScreenTheme" parent="Theme">
+            <item name="windowSplashScreenBackground">@color/orange</item>
+            <item name="windowSplashScreenIconBackgroundColor">@color/orange</item>
+            <item name="windowSplashScreenAnimatedIcon">@drawable/splash</item>
+            <item name="windowSplashScreenAnimationDuration">600</item>
+            <item name="android:statusBarColor">@color/orange</item>
+            <item name="android:background">@color/orange</item>
+            <item name="android:colorBackground">@color/orange</item>
+            <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+</resources>
