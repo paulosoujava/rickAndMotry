@@ -3,16 +3,8 @@ package com.paulo.rickandmorty.presenter.anim
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateIntAsState
-
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideIn
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOut
-import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,18 +12,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ThumbUp
@@ -46,23 +34,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.layout.layoutId
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.constraintlayout.compose.ExperimentalMotionApi
-import androidx.constraintlayout.compose.MotionLayout
-import androidx.constraintlayout.compose.MotionScene
 import com.paulo.rickandmorty.R
-
-
 
 @Composable
 fun Card() {
@@ -71,7 +46,7 @@ fun Card() {
     }
     val animateSize = animateIntAsState(
         targetValue = if (anime.value) 88 else 180,
-        animationSpec = tween(1000)
+        animationSpec = tween(1000),
     )
 
     val enabled = remember {
@@ -80,17 +55,17 @@ fun Card() {
     val borderRadius by animateIntAsState(
         targetValue = if (anime.value) 100 else 0,
         animationSpec = tween(
-            durationMillis = 1000
-        )
+            durationMillis = 1000,
+        ),
     )
     var expanded by remember { mutableStateOf(false) }
     val width: Dp by animateDpAsState(
         targetValue = if (expanded) 300.dp else 100.dp,
-        animationSpec = tween(durationMillis = 500)
+        animationSpec = tween(durationMillis = 500),
     )
     val color: Color by animateColorAsState(
         targetValue = if (expanded) Color.Red else Color.Transparent,
-        animationSpec = tween(durationMillis = 500)
+        animationSpec = tween(durationMillis = 500),
     )
     Box(
         modifier = Modifier
@@ -98,7 +73,7 @@ fun Card() {
                 anime.value = !anime.value
             }
             .padding(top = 10.dp),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Column(
             modifier = Modifier
@@ -110,29 +85,30 @@ fun Card() {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 AnimatedText(
-                    text = "Title", textColor = Color(0xFF806A28),
-                    useAnimation = true
+                    text = "Title",
+                    textColor = Color(0xFF806A28),
+                    useAnimation = true,
                 )
 
                 Box(
                     modifier = Modifier.fillMaxWidth(),
-                    contentAlignment = Alignment.TopEnd
+                    contentAlignment = Alignment.TopEnd,
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.logo), contentDescription = null,
+                        painter = painterResource(id = R.drawable.logo),
+                        contentDescription = null,
                         modifier = Modifier
                             .graphicsLayer(
                                 alpha = 0.5f,
-                                shadowElevation = 10f
+                                shadowElevation = 10f,
                             )
                             .clip(RoundedCornerShape(borderRadius)),
 
-                        )
+                    )
                 }
-
             }
 
             Box {
@@ -141,34 +117,34 @@ fun Card() {
                         .fillMaxWidth()
                         .padding(top = 10.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(
                             Icons.Default.ThumbUp,
                             contentDescription = null,
-                            tint = Color.White
+                            tint = Color.White,
                         )
                     }
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(
                             painterResource(id = R.drawable.logo),
                             contentDescription = null,
-                            tint = Color.White
+                            tint = Color.White,
                         )
                     }
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(
                             painterResource(id = R.drawable.logo),
                             contentDescription = null,
-                            tint = Color.White
+                            tint = Color.White,
                         )
                     }
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(
                             painterResource(id = R.drawable.logo),
                             contentDescription = null,
-                            tint = Color.White
+                            tint = Color.White,
                         )
                     }
 
@@ -176,14 +152,14 @@ fun Card() {
                         Icon(
                             Icons.TwoTone.Delete,
                             contentDescription = null,
-                            tint = Color.White
+                            tint = Color.White,
                         )
                     }
                 }
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Start,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Box(
                         modifier = Modifier
@@ -191,39 +167,42 @@ fun Card() {
                             .background(color)
                             .width(width)
                             .height(40.dp),
-                        contentAlignment = Alignment.Center
+                        contentAlignment = Alignment.Center,
                     ) {
                         androidx.compose.animation.AnimatedVisibility(visible = expanded) {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.SpaceAround,
-                                verticalAlignment = Alignment.CenterVertically
+                                verticalAlignment = Alignment.CenterVertically,
                             ) {
-                                Text(text = "SIM", color = Color.White, modifier = Modifier
-                                    .background(Color.Black, shape = RoundedCornerShape(10))
-                                    .clip(RoundedCornerShape(10))
-                                    .padding(4.dp)
-                                    .clickable {
-                                        expanded = !expanded
-                                    })
+                                Text(
+                                    text = "SIM",
+                                    color = Color.White,
+                                    modifier = Modifier
+                                        .background(Color.Black, shape = RoundedCornerShape(10))
+                                        .clip(RoundedCornerShape(10))
+                                        .padding(4.dp)
+                                        .clickable {
+                                            expanded = !expanded
+                                        },
+                                )
                                 Text(text = "Confirma a exclusão ?", color = Color.White)
-                                Text(text = "NÃO", color = Color.White, modifier = Modifier
-                                    .background(Color.Black, shape = RoundedCornerShape(10))
-                                    .clip(RoundedCornerShape(10))
-                                    .padding(4.dp)
-                                    .clickable {
-                                        expanded = !expanded
-                                    })
+                                Text(
+                                    text = "NÃO",
+                                    color = Color.White,
+                                    modifier = Modifier
+                                        .background(Color.Black, shape = RoundedCornerShape(10))
+                                        .clip(RoundedCornerShape(10))
+                                        .padding(4.dp)
+                                        .clickable {
+                                            expanded = !expanded
+                                        },
+                                )
                             }
-
                         }
-
                     }
                 }
-
             }
-
         }
     }
-
 }

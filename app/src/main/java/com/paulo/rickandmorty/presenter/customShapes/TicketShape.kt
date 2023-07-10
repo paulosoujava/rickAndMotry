@@ -1,6 +1,5 @@
 package com.paulo.rickandmorty.presenter.customShapes
 
-
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Rect
@@ -17,7 +16,7 @@ import androidx.compose.ui.unit.LayoutDirection
 
 class TicketShape(
     private val circleRadius: Dp,
-    private val cornerSize: CornerSize
+    private val cornerSize: CornerSize,
 ) : Shape {
 
     override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline {
@@ -45,11 +44,11 @@ class TicketShape(
                     left = middleX.minus(circleRadiusInPx),
                     top = 0F.minus(circleRadiusInPx),
                     right = middleX.plus(circleRadiusInPx),
-                    bottom = circleRadiusInPx
+                    bottom = circleRadiusInPx,
                 ),
                 startAngleDegrees = 180F,
                 sweepAngleDegrees = -180F,
-                forceMoveTo = false
+                forceMoveTo = false,
             )
             // Draw line to top right
             lineTo(x = size.width, y = 0F)
@@ -63,11 +62,11 @@ class TicketShape(
                     left = middleX.minus(circleRadiusInPx),
                     top = size.height - circleRadiusInPx,
                     right = middleX.plus(circleRadiusInPx),
-                    bottom = size.height.plus(circleRadiusInPx)
+                    bottom = size.height.plus(circleRadiusInPx),
                 ),
                 startAngleDegrees = 0F,
                 sweepAngleDegrees = -180F,
-                forceMoveTo = false
+                forceMoveTo = false,
             )
             // Draw line to bottom left
             lineTo(x = 0F, y = size.height.toFloat())

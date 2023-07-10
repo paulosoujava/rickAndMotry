@@ -1,6 +1,5 @@
 package com.paulo.rickandmorty.presenter.favorite
 
-
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
@@ -31,7 +30,6 @@ import com.paulo.rickandmorty.presenter.favorite.components.PopUpFavorite
 import com.paulo.rickandmorty.presenter.nav.Screen
 import com.paulo.rickandmorty.presenter.ui.theme.Black
 
-
 @Composable
 fun FavoriteView(navController: NavHostController) {
     var showPopUp by remember {
@@ -46,54 +44,49 @@ fun FavoriteView(navController: NavHostController) {
                 .padding(10.dp),
             shape = CutCornerShape(12.dp),
             elevation = CardDefaults.cardElevation(
-                defaultElevation = 10.dp
+                defaultElevation = 10.dp,
             ),
             colors = CardDefaults.cardColors(
-                containerColor = Black
-            )
+                containerColor = Black,
+            ),
         ) {
-
-
             HeaderFavorite(
                 onClickBack = {
                     navController.popBackStack()
-                }
+                },
             ) {
                 ContentFavorite(
                     onNavigate = {
-                        navController.navigate("${Screen.Detail.route}/${it}")
-                    }
+                        navController.navigate("${Screen.Detail.route}/$it")
+                    },
                 ) {
                     showPopUp = !showPopUp
                 }
             }
         }
 
-
-
-        AnimatedVisibility(visible = showPopUp,
+        AnimatedVisibility(
+            visible = showPopUp,
             enter = slideInVertically {
                 // Slide in from 40 dp from the top.
                 with(density) { -40.dp.roundToPx() }
             } + expandVertically(
                 // Expand from the top.
-                expandFrom = Alignment.Top
+                expandFrom = Alignment.Top,
             ) + fadeIn(
                 // Fade in with the initial alpha of 0.3f.
-                initialAlpha = 0.3f
+                initialAlpha = 0.3f,
             ),
-            exit = slideOutVertically() + shrinkVertically() + fadeOut()) {
+            exit = slideOutVertically() + shrinkVertically() + fadeOut(),
+        ) {
             PopUpFavorite(
                 onClickClose = {
                     showPopUp = !showPopUp
                 },
                 onClickDelete = {
                     showPopUp = !showPopUp
-                }
+                },
             )
         }
-
     }
 }
-
-

@@ -2,9 +2,6 @@ package com.paulo.rickandmorty.presenter.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-
-
-
 val GreenLight = Color(0xFF859E68)
 val GreenDark = Color(0xFF577A2D)
 val Green = Color(0xFF8BC34A)
@@ -22,10 +19,10 @@ val OnSurface = Color(0xFF1C1B1F)
 val Transparent = Color.Transparent
 
 val White = Color.White
-val Gray =  Color(0xFF555555)
-val Purple =  Color(0xFF673AB7)
-val Roxo =  Color(0xFF9C27B0)
-val Black  = Color.Black
-val Red  = Color.Red
-val Blue  = Color.Blue
-val DarkGray  = Color.DarkGray
+val Gray = Color(0xFF555555)
+val Purple = Color(0xFF673AB7)
+val Roxo = Color(0xFF9C27B0)
+val Black = Color.Black
+val Red = Color.Red
+val Blue = Color.Blue
+val DarkGray = Color.DarkGray

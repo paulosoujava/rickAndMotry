@@ -14,15 +14,13 @@ sealed class Screen(val route: String) {
     object Detail : Screen("detail")
     object Search : Screen("search")
     object Favorite : Screen("favorite")
-
 }
 
 @Composable
 fun SetupNavGraph(
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     NavHost(navController = navController, startDestination = Screen.Home.route) {
-
         composable(route = Screen.Home.route) {
             HomeScreen(
                 navController = navController,
@@ -32,7 +30,6 @@ fun SetupNavGraph(
             DetailView(
                 navController = navController,
             )
-
         }
         composable(route = Screen.Favorite.route) {
             FavoriteView(

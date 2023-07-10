@@ -5,9 +5,8 @@ import com.paulo.rickandmorty.domain.entities.Character
 import com.paulo.rickandmorty.domain.utils.DomainResult
 import retrofit2.HttpException
 
-
 class GetCharacters(
-    private val repository: INetwork
+    private val repository: INetwork,
 ) {
     suspend operator fun invoke(): DomainResult<List<Character>> {
         return try {

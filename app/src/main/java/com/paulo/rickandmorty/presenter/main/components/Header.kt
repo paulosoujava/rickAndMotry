@@ -27,12 +27,11 @@ import com.paulo.rickandmorty.presenter.ui.theme.Black
 import com.paulo.rickandmorty.presenter.ui.theme.White
 import com.paulo.rickandmorty.presenter.utils.ActiveClick
 
-
 @Composable
 fun Header(
     onSearchClick: () -> Unit,
     onActiveClick: (ActiveClick) -> Unit,
-    currentTab: ActiveClick
+    currentTab: ActiveClick,
 ) {
     val activeClick = remember {
         mutableStateOf(currentTab)
@@ -42,14 +41,15 @@ fun Header(
             .fillMaxWidth()
             .height(145.dp)
             .background(
-                Black, shape = RoundedCornerShape(
+                Black,
+                shape = RoundedCornerShape(
                     bottomEnd = 20.dp,
-                    bottomStart = 20.dp
-                )
+                    bottomStart = 20.dp,
+                ),
             )
             .padding(10.dp),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.Start
+        horizontalAlignment = Alignment.Start,
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -67,16 +67,14 @@ fun Header(
             IconButton(onClick = onSearchClick) {
                 Icon(Icons.Default.Search, contentDescription = null, tint = White)
             }
-
         }
 
         CustomDivider()
 
-
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             for (actClick in ActiveClick.values()) {
                 AnimatedBox(
@@ -85,22 +83,20 @@ fun Header(
                         ActiveClick.Characters -> activeClick.value == ActiveClick.Characters
                         ActiveClick.Locations -> activeClick.value == ActiveClick.Locations
                         ActiveClick.Episodes -> activeClick.value == ActiveClick.Episodes
-                    }
+                    },
                 ) {
-                    onActiveClick( actClick )
+                    onActiveClick(actClick)
 
                     when (actClick) {
                         ActiveClick.Characters ->
-                        {
-                            activeClick.value = ActiveClick.Characters
-
-                        }
+                            {
+                                activeClick.value = ActiveClick.Characters
+                            }
                         ActiveClick.Locations -> activeClick.value = ActiveClick.Locations
                         ActiveClick.Episodes -> activeClick.value = ActiveClick.Episodes
                     }
                 }
             }
         }
-
     }
 }

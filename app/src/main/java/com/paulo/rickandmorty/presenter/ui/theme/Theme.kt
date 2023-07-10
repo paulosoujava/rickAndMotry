@@ -21,13 +21,13 @@ private val DarkColorScheme = darkColorScheme(
     tertiary = Green,
     background = Background,
     surface = Surface,
-    onPrimary = OnPrimary ,
+    onPrimary = OnPrimary,
     onSecondary = OnSecondary,
     onTertiary = OnTertiary,
     onBackground = OnBackground,
     onSurface = OnSurface,
 
-    )
+)
 
 private val LightColorScheme = lightColorScheme(
     primary = GreenDark,
@@ -35,7 +35,7 @@ private val LightColorScheme = lightColorScheme(
     tertiary = Green,
     background = Background,
     surface = Surface,
-    onPrimary = OnPrimary ,
+    onPrimary = OnPrimary,
     onSecondary = OnSecondary,
     onTertiary = OnTertiary,
     onBackground = OnBackground,
@@ -48,7 +48,7 @@ fun RickAndMortyTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
@@ -71,6 +71,6 @@ fun RickAndMortyTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        content = content
+        content = content,
     )
 }

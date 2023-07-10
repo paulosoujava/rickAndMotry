@@ -4,7 +4,7 @@ package com.paulo.rickandmorty.domain.utils
  Erros mapeado pela nossa regra de negociao, usado em viewmodels
  para devolver uma tratativa melhor ao cliente final
  */
-fun handlerErrorsApi(code: Int) = when(code){
+fun handlerErrorsApi(code: Int) = when (code) {
     200 -> "Success"
     201 -> "The item/record was updated successfully"
     400 -> "Bad Request"

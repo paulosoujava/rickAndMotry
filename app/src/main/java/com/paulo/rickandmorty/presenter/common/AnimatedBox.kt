@@ -20,7 +20,7 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
 fun AnimatedBox(
     title: String,
     active: Boolean = false,
-    onClick: (String) -> Unit = {}
+    onClick: (String) -> Unit = {},
 ) {
     val activeColor = if (active) White else Orange
     Box(
@@ -28,7 +28,7 @@ fun AnimatedBox(
             .size(80.dp)
             .border(1.dp, activeColor, shape = TicketShape(12.dp, CornerSize(12.dp)))
             .clickable { onClick(title) },
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             text = title,

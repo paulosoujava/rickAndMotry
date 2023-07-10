@@ -14,13 +14,13 @@ addNetworkInterceptor:
 Como o nome diz, usado para adicionar o interceptor no nível da rede.
  ***********************************************************************************/
 class ForceCacheInterceptor(
-    private val context: Context
+    private val context: Context,
 ) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder: Request.Builder = chain.request().newBuilder()
         if (!isOnline(context)) {
-            builder.cacheControl(CacheControl.FORCE_CACHE);
+            builder.cacheControl(CacheControl.FORCE_CACHE)
         }
-        return chain.proceed(builder.build());
+        return chain.proceed(builder.build())
     }
 }

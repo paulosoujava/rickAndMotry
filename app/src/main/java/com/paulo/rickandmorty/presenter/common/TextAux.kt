@@ -9,13 +9,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.paulo.rickandmorty.presenter.ui.theme.Black
 
-    @Composable
-    fun TextAux(text: String) {
-        Text(text = text,
-            modifier = Modifier.padding(15.dp),
-            style = TextStyle(
-                color = Black,
-                fontSize = 16.sp,
-            )
-        )
-    }
+@Composable
+fun TextAux(text: String) {
+    Text(
+        text = text,
+        modifier = Modifier.padding(15.dp),
+        style = TextStyle(
+            color = Black,
+            fontSize = 16.sp,
+        ),
+    )
+}

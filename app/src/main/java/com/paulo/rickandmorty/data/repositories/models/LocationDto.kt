@@ -2,7 +2,6 @@ package com.paulo.rickandmorty.data.repositories.models
 
 import com.paulo.rickandmorty.domain.entities.Location
 
-
 data class LocationDto(
     val id: Long = 0L,
     val name: String = "",
@@ -20,7 +19,7 @@ data class LocationDto(
             id = id,
             type = type,
             dimension = dimension,
-            residents = residents
+            residents = residents,
         )
     }
 }

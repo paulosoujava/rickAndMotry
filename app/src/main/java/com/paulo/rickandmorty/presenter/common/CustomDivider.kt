@@ -21,15 +21,15 @@ fun CustomDivider(color: Color = White, iconColor: Color = White, sizeIcon: Int 
                 .padding(top = 10.dp, bottom = 15.dp)
                 .height(1.dp)
                 .weight(1f)
-                .background(color, shape = DottedShape(step = 10.dp))
+                .background(color, shape = DottedShape(step = 10.dp)),
         )
         Logo(sizeIcon, color = iconColor)
-             Box(
+        Box(
             Modifier.weight(1f)
                 .padding(top = 10.dp, bottom = 15.dp)
                 .height(1.dp)
                 .fillMaxWidth()
-                .background(color, shape = DottedShape(step = 10.dp))
+                .background(color, shape = DottedShape(step = 10.dp)),
         )
     }
 }

@@ -2,7 +2,6 @@ package com.paulo.rickandmorty.presenter.anim
 
 import android.text.TextPaint
 import androidx.compose.foundation.Canvas
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -11,16 +10,11 @@ import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import com.paulo.rickandmorty.presenter.ui.theme.Black
 import com.paulo.rickandmorty.presenter.ui.theme.Orange
-import com.paulo.rickandmorty.presenter.ui.theme.White
-
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.max
@@ -44,7 +38,7 @@ fun AnimatedText(
     text: String,
     useAnimation: Boolean = true,
     animationDelay: Long = 0L,
-    style: TextStyle = TextStyle( fontSize = 30.sp),
+    style: TextStyle = TextStyle(fontSize = 30.sp),
     textColor: Color = Orange,
 ) {
     val isPreviewMode = LocalInspectionMode.current
@@ -107,7 +101,7 @@ fun AnimatedText(
                                 lastIndex,
                                 0f,
                                 height / 2f + textOffset,
-                                textPaint
+                                textPaint,
                             )
                         }
                         if (lastIndex < text.length) {
@@ -123,7 +117,7 @@ fun AnimatedText(
                                 lastIndex + 1,
                                 x,
                                 height / 2f + textOffset + currentOffset,
-                                textPaint
+                                textPaint,
                             )
                             if (lastIndex + 1 < text.length) {
                                 x += (alphabet[text[lastIndex]] ?: 0f)
@@ -140,7 +134,7 @@ fun AnimatedText(
                                     lastIndex + 2,
                                     x,
                                     height / 2f + textOffset + nextOffset,
-                                    textPaint
+                                    textPaint,
                                 )
                             }
                         }
@@ -153,12 +147,12 @@ fun AnimatedText(
                             text.length,
                             0f,
                             height / 2f + textOffset,
-                            textPaint
+                            textPaint,
                         )
                     }
                 }
             }
-        }
+        },
     ) { placeables, constraints ->
         val textWidth =
             text.fold(0f) { acc, char -> acc + (alphabet[char] ?: 0f) }.roundToInt() + 1
@@ -169,10 +163,9 @@ fun AnimatedText(
                 minWidth = textWidth,
                 maxWidth = textWidth,
                 minHeight = textSize,
-                maxHeight = textSize
+                maxHeight = textSize,
             )
             canvas.measure(cc).placeRelative(x = 0, y = 0)
         }
     }
 }
-

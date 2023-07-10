@@ -5,9 +5,8 @@ import com.paulo.rickandmorty.domain.entities.Location
 import com.paulo.rickandmorty.domain.utils.DomainResult
 import retrofit2.HttpException
 
-
 class GetLocations(
-    private val repository: INetwork
+    private val repository: INetwork,
 ) {
     suspend operator fun invoke(): DomainResult<List<Location>> {
         return try {

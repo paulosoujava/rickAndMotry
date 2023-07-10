@@ -5,9 +5,8 @@ import com.paulo.rickandmorty.domain.entities.Episode
 import com.paulo.rickandmorty.domain.utils.DomainResult
 import retrofit2.HttpException
 
-
 class GetEpisodes(
-    private val repository: INetwork
+    private val repository: INetwork,
 ) {
     suspend operator fun invoke(): DomainResult<List<Episode>> {
         return try {

@@ -15,7 +15,7 @@ fun Filters(activeClick: MutableState<Filter>) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         for (actClick in Filter.values()) {
             AnimatedBox(
@@ -24,7 +24,7 @@ fun Filters(activeClick: MutableState<Filter>) {
                     Filter.Alive -> activeClick.value == Filter.Alive
                     Filter.Dead -> activeClick.value == Filter.Dead
                     Filter.Unknown -> activeClick.value == Filter.Unknown
-                }
+                },
             ) {
                 when (actClick) {
                     Filter.Alive -> activeClick.value = Filter.Alive

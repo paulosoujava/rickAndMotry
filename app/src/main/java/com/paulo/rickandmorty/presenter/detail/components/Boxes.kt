@@ -1,7 +1,6 @@
 package com.paulo.rickandmorty.presenter.detail.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,7 +32,7 @@ fun Boxes(title: String, subTitle: String, color: Color) {
             .fillMaxWidth()
             .clip(RoundedCornerShape(10.dp))
             .background(Background)
-            .padding(10.dp)
+            .padding(10.dp),
     ) {
         Column {
             Text(
@@ -41,8 +40,8 @@ fun Boxes(title: String, subTitle: String, color: Color) {
                 style = TextStyle(
                     color = White,
                     fontSize = 21.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                    fontWeight = FontWeight.Bold,
+                ),
             )
             Text(
                 text = subTitle,
@@ -51,16 +50,15 @@ fun Boxes(title: String, subTitle: String, color: Color) {
                 style = TextStyle(
                     color = Black,
                     fontSize = 16.sp,
-                )
+                ),
             )
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.End,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Logo(size = 50, color = color)
             }
-
         }
     }
 }

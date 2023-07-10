@@ -20,19 +20,20 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
 
 @Composable
 fun EpisodeTab(
-    episode: Episode
+    episode: Episode,
 ) {
     Column(
         modifier = Modifier
             .padding(10.dp)
             .fillMaxWidth()
             .background(
-                Black, shape = CutCornerShape(
+                Black,
+                shape = CutCornerShape(
                     bottomEnd = 20.dp,
-                    bottomStart = 20.dp
-                )
+                    bottomStart = 20.dp,
+                ),
             )
-            .padding(20.dp)
+            .padding(20.dp),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -41,22 +42,22 @@ fun EpisodeTab(
             Text(
                 text = "Name: ${episode.name}",
                 style = TextStyle(color = White, fontSize = 18.sp),
-                modifier = Modifier.weight(2f)
+                modifier = Modifier.weight(2f),
             )
             Logo(size = 45)
         }
 
         Text(
             text = "Date of air: ${episode.airDate}",
-            style = TextStyle(color = White, fontSize = 18.sp)
+            style = TextStyle(color = White, fontSize = 18.sp),
         )
         Text(
             text = "Episode: ${episode.episode}",
-            style = TextStyle(color = White, fontSize = 18.sp)
+            style = TextStyle(color = White, fontSize = 18.sp),
         )
         Text(
             text = "Total number of characters:  ${episode.characters.size}",
-            style = TextStyle(color = White, fontSize = 18.sp)
+            style = TextStyle(color = White, fontSize = 18.sp),
         )
     }
 }

@@ -5,11 +5,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -18,7 +16,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -31,14 +28,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -52,12 +46,12 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
 @Composable
 fun ContentFavorite(
     onNavigate: (String) -> Unit,
-    onClosePopUp: () -> Unit
+    onClosePopUp: () -> Unit,
 ) {
     val numbers = (0..20).toList()
 
     LazyVerticalGrid(
-        columns = GridCells.Fixed(2)
+        columns = GridCells.Fixed(2),
     ) {
         items(numbers.size) {
             Card(
@@ -67,14 +61,14 @@ fun ContentFavorite(
                     .padding(10.dp),
                 shape = CutCornerShape(12.dp),
                 elevation = CardDefaults.cardElevation(
-                    defaultElevation = 10.dp
+                    defaultElevation = 10.dp,
                 ),
                 colors = CardDefaults.cardColors(
-                    containerColor = Black
+                    containerColor = Black,
                 ),
                 onClick = {
                     onNavigate("123")
-                }
+                },
             ) {
                 Box {
                     AsyncImage(
@@ -89,10 +83,10 @@ fun ContentFavorite(
                         contentDescription = null,
                         contentScale = ContentScale.FillBounds,
 
-                        )
+                    )
                     Vertical(
                         onDelete = onClosePopUp,
-                        onNavigate = { onNavigate("123") }
+                        onNavigate = { onNavigate("123") },
                     )
                 }
             }
@@ -107,13 +101,13 @@ fun Vertical(
 ) {
     Column(
         modifier = Modifier.size(180.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Row(
                 modifier = Modifier
@@ -122,12 +116,14 @@ fun Vertical(
                     .background(Black.copy(alpha = 0.8f))
                     .padding(4.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
+                horizontalArrangement = Arrangement.Center,
             ) {
                 IconButton(onClick = { onNavigate() }) {
                     Icon(
-                        Icons.Default.Person, contentDescription = null, tint = Orange,
-                        modifier = Modifier.size(14.dp)
+                        Icons.Default.Person,
+                        contentDescription = null,
+                        tint = Orange,
+                        modifier = Modifier.size(14.dp),
                     )
                 }
                 Text(
@@ -135,17 +131,17 @@ fun Vertical(
                     text = "Rick Sanchez",
                     style = TextStyle(
                         color = White,
-                    )
+                    ),
                 )
                 IconButton(onClick = { onDelete() }) {
                     Icon(
-                        Icons.Default.Delete, contentDescription = null, tint = Red,
-                        modifier = Modifier.size(14.dp)
+                        Icons.Default.Delete,
+                        contentDescription = null,
+                        tint = Red,
+                        modifier = Modifier.size(14.dp),
                     )
                 }
             }
-
-
         }
     }
 }
@@ -156,7 +152,7 @@ fun Modifier.vertical() =
         layout(placeable.height, placeable.width) {
             placeable.place(
                 x = -(placeable.width / 2 - placeable.height / 2),
-                y = -(placeable.height / 2 - placeable.width / 2)
+                y = -(placeable.height / 2 - placeable.width / 2),
             )
         }
     }

@@ -13,10 +13,8 @@ import com.paulo.rickandmorty.presenter.helpers.WarningView
 import com.paulo.rickandmorty.presenter.main.components.ContentOfHome
 import com.paulo.rickandmorty.presenter.utils.ActiveClick
 
-
 @Composable
 fun HomeScreen(navController: NavHostController) {
-
     val viewModel = hiltViewModel<HomeViewModel>()
 
     val stateCharacter = viewModel.stateCharacters.collectAsState()
@@ -34,7 +32,7 @@ fun HomeScreen(navController: NavHostController) {
                 listOfCharacter = stateCharacter.value.success,
                 listOfEpisode = stateEpisode.value.success,
                 listOfLocation = stateLocation.value.success,
-                currentTab = currentTab.value
+                currentTab = currentTab.value,
             )
 
         ActiveClick.Locations ->
@@ -46,7 +44,7 @@ fun HomeScreen(navController: NavHostController) {
                 listOfCharacter = stateCharacter.value.success,
                 listOfEpisode = stateEpisode.value.success,
                 listOfLocation = stateLocation.value.success,
-                currentTab = currentTab.value
+                currentTab = currentTab.value,
             )
 
         ActiveClick.Episodes ->
@@ -58,11 +56,9 @@ fun HomeScreen(navController: NavHostController) {
                 listOfCharacter = stateCharacter.value.success,
                 listOfEpisode = stateEpisode.value.success,
                 listOfLocation = stateLocation.value.success,
-                currentTab = currentTab.value
+                currentTab = currentTab.value,
             )
     }
-
-
 }
 
 @Composable
@@ -74,9 +70,8 @@ fun UiEvent(
     listOfCharacter: List<Character>,
     listOfEpisode: List<Episode>,
     listOfLocation: List<Location>,
-    currentTab: ActiveClick
+    currentTab: ActiveClick,
 ) {
-
     when (event) {
         BaseEvent.ERROR -> {
             WarningView(message = message)
@@ -90,12 +85,13 @@ fun UiEvent(
             navController = navController,
             listOfCharacter = listOfCharacter,
             listOfEpisode = listOfEpisode,
-            listOfLocation =listOfLocation,
+            listOfLocation = listOfLocation,
             currentTab = currentTab,
             onActiveClick = {
-                if(it != currentTab)
+                if (it != currentTab) {
                     viewModel.onActiveClick(it)
-            }
+                }
+            },
         )
     }
 }

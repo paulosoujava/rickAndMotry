@@ -51,27 +51,27 @@ fun CharacterTab(
             .border(
                 1.dp,
                 Orange,
-                shape = TicketShape(12.dp, CornerSize(12.dp))
+                shape = TicketShape(12.dp, CornerSize(12.dp)),
             )
             .background(
                 Black,
-                shape = TicketShape(12.dp, CornerSize(12.dp))
+                shape = TicketShape(12.dp, CornerSize(12.dp)),
             )
             .clickable { onClickCard(character) },
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ){
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
             AsyncImage(
                 modifier = Modifier
                     .clip(
                         RoundedCornerShape(
                             topStart = 15.dp,
-                            bottomStart = 15.dp
-                        )
+                            bottomStart = 15.dp,
+                        ),
                     )
                     .width(174.dp)
                     .height(190.dp),
@@ -83,36 +83,36 @@ fun CharacterTab(
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds,
 
-                )
+            )
             Logo(size = 20)
-            Column(modifier = Modifier
-                .padding(8.dp)
-                .weight(1f)) {
+            Column(
+                modifier = Modifier
+                    .padding(8.dp)
+                    .weight(1f),
+            ) {
                 Text(
                     text = character.name,
                     style = TextStyle(color = White, fontSize = 20.sp, fontWeight = FontWeight.Bold),
                     maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
                 )
                 Text(
                     text = "Specie: ${character.species}",
                     style = TextStyle(color = White, fontSize = 13.sp),
                     maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
                 )
-                Divider( modifier = Modifier.padding(top = 10.dp, bottom = 10.dp) )
+                Divider(modifier = Modifier.padding(top = 10.dp, bottom = 10.dp))
                 Text(
                     text = "Last Known location:",
-                    style = TextStyle(color = Gray, fontSize = 14.sp)
+                    style = TextStyle(color = Gray, fontSize = 14.sp),
                 )
                 Text(
                     text = character.location.name,
                     style = TextStyle(color = White, fontSize = 16.sp),
                     maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
                 )
-
-
             }
         }
     }

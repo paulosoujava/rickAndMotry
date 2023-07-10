@@ -12,7 +12,7 @@ data class EpisodeDto(
     val characters: List<String>,
     val url: String?,
     val created: String?,
-){
+) {
     fun toEntity(): Episode {
         return Episode(
             id = id ?: 0L,

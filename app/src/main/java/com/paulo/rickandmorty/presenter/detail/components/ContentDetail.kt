@@ -10,11 +10,9 @@ import com.paulo.rickandmorty.domain.usecases.ParamDetail
 import com.paulo.rickandmorty.presenter.common.CustomDivider
 import com.paulo.rickandmorty.presenter.ui.theme.Black
 import com.paulo.rickandmorty.presenter.ui.theme.Blue
-import com.paulo.rickandmorty.presenter.ui.theme.DarkGray
 import com.paulo.rickandmorty.presenter.ui.theme.GreenDark
 import com.paulo.rickandmorty.presenter.ui.theme.Purple
 import com.paulo.rickandmorty.presenter.ui.theme.Red
-import com.paulo.rickandmorty.presenter.ui.theme.Roxo
 import com.paulo.rickandmorty.presenter.ui.theme.White
 
 @Composable
@@ -33,17 +31,18 @@ fun ContentDetail() {
     }
     Row(modifier = Modifier.fillMaxSize()) {
         Box(modifier = Modifier.weight(1f)) {
-            Boxes(title = "location",
-                subTitle = ParamDetail.character.location.name, Purple)
-
+            Boxes(
+                title = "location",
+                subTitle = ParamDetail.character.location.name,
+                Purple,
+            )
         }
         Box(modifier = Modifier.weight(1f)) {
             Boxes(
                 title = "episode",
                 subTitle = ParamDetail.character.episode.size.toString(),
-                White
+                White,
             )
         }
-
     }
 }

@@ -18,7 +18,6 @@ import com.paulo.rickandmorty.domain.utils.isOnline
 import com.paulo.rickandmorty.presenter.nav.Screen
 import com.paulo.rickandmorty.presenter.utils.ActiveClick
 
-
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ContentOfHome(
@@ -35,16 +34,16 @@ fun ContentOfHome(
         stickyHeader {
             Header(
                 onSearchClick = {
-                    if (isOnline(context))
+                    if (isOnline(context)) {
                         navController.navigate(Screen.Search.route)
-                    else {
+                    } else {
                         Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT).show()
                     }
                 },
                 onActiveClick = {
                     onActiveClick(it)
                 },
-                currentTab = currentTab
+                currentTab = currentTab,
             )
         }
 
@@ -55,16 +54,15 @@ fun ContentOfHome(
                     onClickCard = {
                         ParamDetail.character = it
                         navController.navigate(
-                            "${Screen.Detail.route}/${it.id}"
+                            "${Screen.Detail.route}/${it.id}",
                         )
-                    }
+                    },
                 )
             }
         }
         items(listOfEpisode) { episode ->
             AnimatedVisibility(visible = currentTab == ActiveClick.Episodes) {
                 EpisodeTab(episode = episode)
-
             }
         }
         items(listOfLocation) { location ->

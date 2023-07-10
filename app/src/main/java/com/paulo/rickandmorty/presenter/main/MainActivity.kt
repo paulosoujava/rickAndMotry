@@ -18,41 +18,35 @@ import com.paulo.rickandmorty.presenter.ui.theme.Orange
 import com.paulo.rickandmorty.presenter.ui.theme.RickAndMortyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
             RickAndMortyTheme {
-
                 val systemUiController = rememberSystemUiController()
                 val useDarkIcons = isSystemInDarkTheme()
                 SideEffect {
                     systemUiController.setSystemBarsColor(
                         color = Orange,
-                        darkIcons = useDarkIcons
+                        darkIcons = useDarkIcons,
                     )
                     systemUiController.setNavigationBarColor(
                         color = Orange,
-                        darkIcons = useDarkIcons
+                        darkIcons = useDarkIcons,
                     )
-
                 }
                 val navController = rememberNavController()
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Background
+                    color = Background,
                 ) {
                     SetupNavGraph(
-                        navController = navController
+                        navController = navController,
                     )
                 }
             }
         }
     }
 }
-
-

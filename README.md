@@ -36,6 +36,19 @@ DESIGN PATTERNS: SINGLETON, ABSTRACT FACTORY
 REPOSITORY PATTERN
 ```
 
+```sh
+  ./gradlew build
+    BUILD SUCCESSFUL in 36s
+
+  ./gradlew connectedCheck
+    BUILD SUCCESSFUL in 26s
+
+  ./gradlew lintKotlin
+   -- NÃO APLICADO --
+
+```
+
+
 ## Telas:
 
 <p float="left">

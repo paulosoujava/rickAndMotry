@@ -11,14 +11,13 @@ import com.paulo.rickandmorty.presenter.common.Logo
 import com.paulo.rickandmorty.presenter.ui.theme.White
 
 @Composable
- fun Loading() {
+fun Loading() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         CircularProgressIndicator(
             modifier = Modifier.align(Alignment.Center),
             color = White,
-            strokeWidth = 2.dp
+            strokeWidth = 2.dp,
         )
         Logo(size = 30, color = White)
-
     }
 }

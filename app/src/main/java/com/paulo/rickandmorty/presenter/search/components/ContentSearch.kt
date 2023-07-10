@@ -52,33 +52,33 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
- fun ColumnScope.ContentSearch(
+fun ColumnScope.ContentSearch(
     state: State<SearchUI>,
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     LazyColumn(
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth()
-            .weight(1f)
+            .weight(1f),
     ) {
         item {
             AnimatedVisibility(visible = state.value.success.isEmpty()) {
                 Column(
                     modifier = Modifier.fillMaxWidth(),
                     verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.logo),
-                        contentDescription = null
+                        contentDescription = null,
                     )
                     Text(
                         text = "Do something interesting",
                         style = TextStyle(
                             color = Black,
                             fontSize = 24.sp,
-                        )
+                        ),
                     )
                 }
             }
@@ -92,27 +92,28 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
                         .padding(10.dp),
                     shape = CutCornerShape(12.dp),
                     elevation = CardDefaults.cardElevation(
-                        defaultElevation = 10.dp
+                        defaultElevation = 10.dp,
                     ),
                     colors = CardDefaults.cardColors(
-                        containerColor = Black
+                        containerColor = Black,
                     ),
                     onClick = {
                         ParamDetail.character = person
                         navController.navigate("${Screen.Detail.route}/${person.id}")
-                    }) {
+                    },
+                ) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
                         AsyncImage(
                             modifier = Modifier
                                 .clip(
                                     RoundedCornerShape(
                                         topStart = 15.dp,
-                                        bottomStart = 15.dp
-                                    )
+                                        bottomStart = 15.dp,
+                                    ),
                                 )
                                 .size(154.dp),
                             model = ImageRequest.Builder(LocalContext.current)
@@ -123,9 +124,9 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
                             contentDescription = null,
                             contentScale = ContentScale.FillBounds,
 
-                            )
+                        )
                         Column(
-                            modifier = Modifier.padding(top = 15.dp)
+                            modifier = Modifier.padding(top = 15.dp),
                         ) {
                             Text(
                                 text = "${person.name} ",
@@ -133,7 +134,7 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
                                 style = TextStyle(
                                     color = White,
                                     fontSize = 14.sp,
-                                    fontWeight = FontWeight.Bold
+                                    fontWeight = FontWeight.Bold,
                                 ),
                                 maxLines = 1,
                             )
@@ -152,21 +153,21 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
                                                 "Dead" -> Red
                                                 else -> Orange
                                             },
-                                            shape = RoundedCornerShape(50.dp)
-                                        )
+                                            shape = RoundedCornerShape(50.dp),
+                                        ),
                                 )
                             }
 
                             Box(
                                 modifier = Modifier.fillMaxSize(),
-                                contentAlignment = Alignment.BottomEnd
+                                contentAlignment = Alignment.BottomEnd,
                             ) {
                                 Box(
                                     modifier = Modifier
                                         .padding(10.dp)
                                         .background(
                                             Orange,
-                                            shape = CutCornerShape(10.dp)
+                                            shape = CutCornerShape(10.dp),
                                         )
                                         .size(30.dp)
                                         .clip(CutCornerShape(12.dp)),
@@ -174,7 +175,7 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
                                     IconButton(onClick = { navController.navigate("${Screen.Detail.route}/${person.id}") }) {
                                         Icon(
                                             Icons.Default.ArrowForward,
-                                            contentDescription = null
+                                            contentDescription = null,
                                         )
                                     }
                                 }

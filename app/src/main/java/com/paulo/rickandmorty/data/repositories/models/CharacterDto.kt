@@ -2,9 +2,7 @@ package com.paulo.rickandmorty.data.repositories.models
 
 import com.paulo.rickandmorty.domain.entities.Character
 
-
 data class CharacterDto(
-
 
     val id: Long = 0L,
 
@@ -36,6 +34,4 @@ data class CharacterDto(
             created = created,
         )
     }
-
-
 }

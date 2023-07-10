@@ -23,9 +23,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object Module {
-    //********************************************************
+    // ********************************************************
     // RETROFIT
-    //********************************************************
+    // ********************************************************
 
     @Provides
     @Singleton
@@ -38,10 +38,9 @@ object Module {
             .create(Api::class.java)
     }
 
-
-    //********************************************************
+    // ********************************************************
     // USE CASES
-    //********************************************************
+    // ********************************************************
     @Provides
     @Singleton
     fun provideUseCases(
@@ -57,35 +56,33 @@ object Module {
     @Provides
     @Singleton
     fun providerFilterSearch(
-        repository: INetwork
+        repository: INetwork,
     ) = GetByFilter(repository)
 
     @Provides
     @Singleton
     fun provideCharacterUseCases(
-        repository: INetwork
+        repository: INetwork,
     ) = GetCharacters(repository = repository)
 
     @Provides
     @Singleton
     fun provideLocationsUseCases(
-        repository: INetwork
+        repository: INetwork,
     ) = GetLocations(repository = repository)
 
     @Provides
     @Singleton
     fun provideEpisodesUseCases(
-        repository: INetwork
+        repository: INetwork,
     ) = GetEpisodes(repository = repository)
 
-    //********************************************************
+    // ********************************************************
     // REPOSITORIES
-    //********************************************************
+    // ********************************************************
     @Provides
     @Singleton
     fun provideRemoteRepository(api: Api): INetwork {
         return NetWorkImpl(api)
     }
-
-
 }

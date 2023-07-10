@@ -27,9 +27,7 @@ import androidx.compose.ui.unit.sp
 import com.paulo.rickandmorty.presenter.common.CustomDivider
 import com.paulo.rickandmorty.presenter.common.Logo
 import com.paulo.rickandmorty.presenter.common.TextAux
-import com.paulo.rickandmorty.presenter.customShapes.DottedShape
 import com.paulo.rickandmorty.presenter.ui.theme.Black
-import com.paulo.rickandmorty.presenter.ui.theme.Blue
 import com.paulo.rickandmorty.presenter.ui.theme.GreenLight
 import com.paulo.rickandmorty.presenter.ui.theme.Orange
 import com.paulo.rickandmorty.presenter.ui.theme.Red
@@ -38,33 +36,34 @@ import com.paulo.rickandmorty.presenter.ui.theme.White
 @Composable
 fun PopUpFavorite(
     onClickClose: () -> Unit,
-    onClickDelete: (String) -> Unit
+    onClickDelete: (String) -> Unit,
 ) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Black.copy(alpha = 0.9f)),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Box(
             modifier = Modifier
                 .size(350.dp)
-                .background(Orange)
+                .background(Orange),
         ) {
             Column(
-                modifier = Modifier.padding(12.dp)
+                modifier = Modifier.padding(12.dp),
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
                     Text(
                         text = "Are you sure?",
                         style = TextStyle(
                             color = Black,
-                            fontSize = 24.sp, fontWeight = FontWeight.Bold
-                        )
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.Bold,
+                        ),
                     )
                     IconButton(onClick = onClickClose) {
                         Icon(Icons.Default.Close, contentDescription = null, tint = Black)
@@ -80,12 +79,12 @@ fun PopUpFavorite(
                             .height(40.dp)
                             .weight(1f)
                             .background(Red, shape = CutCornerShape(10.dp)),
-                        contentAlignment = Alignment.Center
+                        contentAlignment = Alignment.Center,
                     ) {
                         TextButton(onClick = { onClickDelete("123") }) {
                             Text(
                                 text = "Yes, Delete",
-                                style = TextStyle(color = White, fontWeight = FontWeight.Bold)
+                                style = TextStyle(color = White, fontWeight = FontWeight.Bold),
                             )
                         }
                     }
@@ -97,17 +96,16 @@ fun PopUpFavorite(
                             .height(40.dp)
                             .fillMaxWidth()
                             .background(GreenLight, shape = CutCornerShape(10.dp)),
-                        contentAlignment = Alignment.Center
+                        contentAlignment = Alignment.Center,
                     ) {
                         TextButton(onClick = onClickClose) {
                             Text(
                                 text = "No",
-                                style = TextStyle(color = White, fontWeight = FontWeight.Bold)
+                                style = TextStyle(color = White, fontWeight = FontWeight.Bold),
                             )
                         }
                     }
                 }
-
             }
         }
     }

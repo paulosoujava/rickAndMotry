@@ -1,6 +1,5 @@
 package com.paulo.rickandmorty.data.repositories.remote.network
 
-
 import com.paulo.rickandmorty.data.repositories.models.CharacterDto
 import com.paulo.rickandmorty.data.repositories.models.EpisodeDto
 import com.paulo.rickandmorty.data.repositories.models.LocationDto

@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -24,7 +23,6 @@ import androidx.compose.ui.unit.dp
 import com.paulo.rickandmorty.presenter.ui.theme.Black
 import com.paulo.rickandmorty.presenter.ui.theme.Gray
 import com.paulo.rickandmorty.presenter.ui.theme.Orange
-import com.paulo.rickandmorty.presenter.ui.theme.OrangeDark
 import com.paulo.rickandmorty.presenter.ui.theme.White
 
 @Composable
@@ -33,32 +31,34 @@ fun InputSearch(
     modifier: Modifier = Modifier,
     onClickBack: () -> Unit,
     onFilter: () -> Unit,
-    onValueChange: (String) -> Unit
+    onValueChange: (String) -> Unit,
 ) {
-
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-
-
         Box(
             modifier = modifier
-                .background(Orange, shape = RoundedCornerShape(
-                    topStart = 50.dp,
-                    bottomStart = 50.dp,
-                    topEnd = 8.dp,
-                    bottomEnd = 8.dp
-                ))
+                .background(
+                    Orange,
+                    shape = RoundedCornerShape(
+                        topStart = 50.dp,
+                        bottomStart = 50.dp,
+                        topEnd = 8.dp,
+                        bottomEnd = 8.dp,
+                    ),
+                )
                 .weight(3f)
                 .padding(5.dp)
-                .clip(RoundedCornerShape(
-                    topStart = 50.dp,
-                    bottomStart = 50.dp,
-                    topEnd = 8.dp,
-                    bottomEnd = 8.dp
-                ))
+                .clip(
+                    RoundedCornerShape(
+                        topStart = 50.dp,
+                        bottomStart = 50.dp,
+                        topEnd = 8.dp,
+                        bottomEnd = 8.dp,
+                    ),
+                ),
 
         ) {
             androidx.compose.material.TextField(
@@ -74,7 +74,7 @@ fun InputSearch(
                     textColor = Black,
                     focusedIndicatorColor = Color.Transparent,
                     cursorColor = Black,
-                    unfocusedIndicatorColor = Color.Transparent
+                    unfocusedIndicatorColor = Color.Transparent,
                 ),
                 leadingIcon = {
                     IconButton(onClick = onClickBack) {
@@ -82,26 +82,32 @@ fun InputSearch(
                     }
                 },
 
-                //trailingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = "") },
-                placeholder = { Text(text = "Search") }
+                // trailingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = "") },
+                placeholder = { Text(text = "Search") },
             )
         }
         IconButton(
             modifier = Modifier
                 .height(50.dp)
-                .background(Orange, shape = RoundedCornerShape(
-                    topStart = 0.dp,
-                    bottomStart = 0.dp,
-                    bottomEnd = 50.dp,
-                    topEnd = 50.dp
-                ))
-                .clip(RoundedCornerShape(
-                    topStart = 0.dp,
-                    bottomStart = 0.dp,
-                    bottomEnd = 50.dp,
-                    topEnd = 50.dp
-                )),
-            onClick = onFilter) {
+                .background(
+                    Orange,
+                    shape = RoundedCornerShape(
+                        topStart = 0.dp,
+                        bottomStart = 0.dp,
+                        bottomEnd = 50.dp,
+                        topEnd = 50.dp,
+                    ),
+                )
+                .clip(
+                    RoundedCornerShape(
+                        topStart = 0.dp,
+                        bottomStart = 0.dp,
+                        bottomEnd = 50.dp,
+                        topEnd = 50.dp,
+                    ),
+                ),
+            onClick = onFilter,
+        ) {
             Icon(Icons.Default.Search, contentDescription = "", tint = Color.White)
         }
     }

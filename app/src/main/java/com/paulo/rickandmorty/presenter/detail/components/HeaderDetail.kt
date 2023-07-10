@@ -14,7 +14,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -43,7 +42,7 @@ fun HeaderDetail(
     onClickBack: () -> Unit,
     content: @Composable ColumnScope.() -> Unit,
 
-    ) {
+) {
     Column(
         modifier = Modifier
             .verticalScroll(rememberScrollState())
@@ -61,20 +60,20 @@ fun HeaderDetail(
             contentDescription = null,
             contentScale = ContentScale.FillBounds,
 
-            )
+        )
         Row(
             modifier = Modifier
                 .padding(15.dp)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(15.dp)
+            horizontalArrangement = Arrangement.spacedBy(15.dp),
         ) {
             IconButton(
                 modifier = Modifier
                     .size(34.dp)
                     .background(Orange, shape = RoundedCornerShape(50.dp))
                     .clip(RoundedCornerShape(50.dp)),
-                onClick = onClickBack
+                onClick = onClickBack,
             ) {
                 Icon(Icons.Default.ArrowBack, contentDescription = null, tint = White)
             }
@@ -85,16 +84,16 @@ fun HeaderDetail(
                     style = TextStyle(
                         color = White,
                         fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold
-                    )
+                        fontWeight = FontWeight.Bold,
+                    ),
                 )
                 Text(
-                    text = converterData(ParamDetail.character.created) ,
+                    text = converterData(ParamDetail.character.created),
                     maxLines = 1,
                     style = TextStyle(
                         color = Gray,
                         fontSize = 17.sp,
-                    )
+                    ),
                 )
             }
         }

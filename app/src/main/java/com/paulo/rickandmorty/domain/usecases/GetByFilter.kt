@@ -6,7 +6,7 @@ import com.paulo.rickandmorty.domain.utils.DomainResult
 import retrofit2.HttpException
 
 class GetByFilter(
-    private val repository: INetwork
+    private val repository: INetwork,
 ) {
     suspend operator fun invoke(status: String, name: String): DomainResult<List<Character>> {
         return try {
