@@ -48,6 +48,11 @@ REPOSITORY PATTERN
 
 ```
 
+## Melhorias para serem feitas:
+- Mais testes
+- Pagination
+- Favorire (Room)
+- Rotate Screen
 
 ## Telas:
 
